@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <div class="d-flex flex-row align-items-center">
+    <h1 class="mb-4">All flats</h1>
+  </div>
+  <div class="row gap-3 mb-5">
+    <% @flats.each do |flat| %>
+      <div class="card col-3 p-0">
+        <%= image_tag asset_path(flat.image), class: "card-img-top object-fit-cover" %>
+        <div class="card-img-body p-3">
+          <h5><%= link_to flat.name, flat_path(flat), class: "text-decoration-none" %></h5>
+          <p class="m-0"><strong>Address: </strong><%= flat.address %></p>
+          <p class="m-0"><strong>Description: </strong><%= flat.description %></p>
+          <p class="m-0"><strong>Price per night:</strong> $<%= flat.price_per_night %></p>
+          <p class="m-0"><strong>Number of guests: </strong><%= flat.number_of_guests %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
